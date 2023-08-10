@@ -1,0 +1,70 @@
+<!-- .slide: data-state="layout-title" class="bg-dark"-->
+<h1 id="recursion" tabindex="-1">Recursion <a class="direct-link" href="#recursion"> </a></h1>
+<div class="slide-link"><a href="https://go.raybo.org/9eb1"><i class="fab fa-slideshare"></i> go.raybo.org/9eb1</a></div>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>It's time for something both dangerous and powerful that you can do with functions. It's called recursion.</p>
+<hr>
+<h1 id="calls-itself" tabindex="-1">Calls Itself <a class="direct-link" href="#calls-itself"> </a></h1>
+<pre><code class="language-js">function myself() {
+    myself();
+}
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Recursion happens whenever a function calls itself.</p>
+<p>You can clearly see where that could be dangerous. With this function, the program would just use up all of the available memory and run forever or until an error occurred.</p>
+<hr>
+<h1 id="base-case" tabindex="-1">Base Case <a class="direct-link" href="#base-case"> </a></h1>
+<pre><code class="language-js">function countUp(num, max) {
+    if (num &gt; max) return;
+    console.log(num);
+    countUp(num+1, max);
+}
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Every recursive function needs a base case.</p>
+<p>A base case is a statement that exits the function when a condition is met...Can you identify the base case in the code above?</p>
+<p>That's right. It's the statement with the return.</p>
+<p>When our program runs, each one of the function coopies will create a set of internal variables called the stack.</p>
+<p>Without a base case, javascript will continue to ask for new variables until it either runs out of memory or the browser runs into an internal limit.</p>
+<p>That particular error is known as the Stack Overflow...which is also the name of a great site where you can ask other programmers questions.</p>
+<p>You might be wondering if it wouldn't be easier to run a loop and in this case, you'd be right. Let's take a look at a more complex example.</p>
+<hr>
+<h1 id="fibbonacci" tabindex="-1">Fibbonacci <a class="direct-link" href="#fibbonacci"> </a></h1>
+<pre><code class="language-js">let fibby = function (count) {
+    if (count===1) return [0, 1]
+    let arr = fibby(count-1)
+    let sum = arr[arr.length -1] + arr[arr.length - 2]
+    arr.push(sum)
+    return arr
+}
+fibby(8);
+</code></pre>
+<p><a href="https://github.dev/LinkedInLearning/javascript-functions-2502735/tree/02_05b" target="_blank"><code class="code-royal">Try It</code></a></p>
+<p><a href="https://www.linkedin.com/learning/code-clinic-javascript-2/intro-eight-queens?autoplay=true&resume=false&u=104" target="_blank"><code class="code-primary">More Info</code></a></p>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>This is a classic interview question. How to build a fibbonacci sequence and recursion is the perfect solution.</p>
+<p>You know if you did ask yourself, why not do the previous problem with a loop, you were on the right track. Recursion acts like a backwards loop that uses the power of closures in an interesting way.</p>
+<p>Before we get started going through what's happening here...can you identify the base case here?</p>
+<p>Right you are. The return statement gives it away.</p>
+<p>A Fibbonacci sequence is a set of numbers where the next number is equal to the previous two numbers. It's a pattern that is common in nature and mathematics.</p>
+<p>Let's walk through a version of this code next.</p>
+<p>I added a couple more console log statements so we can see what's happening. I'll start from the bottom.</p>
+<p>We call the function and it starts going through the sequence.</p>
+<p>The base case checks to make sure that this isn't the last number. Recursion is basically like a backwards loop that exits on a return statement.</p>
+<p>The reason it's so cool is that every function can remember what came before it and do something with the set of data gathered before.</p>
+<p>For a fibbonacci sequence, I have to take the last two numbers and add them together.</p>
+<p>The first thing that happens is that we create a new fibby function with a decreased count. We'll keep doing that until the count reaches one and then our base case will kick us out of our program.</p>
+<p>The second time we create the function it will have a count of seven...and so on and so forth.</p>
+<p>You can see in our log, that basically we quickly create 8 copies of this function...each with a different index.</p>
+<p>So Fibby 8 is going to create Fibby 7, then it's going to do some calculations that adds the previous two numbers in our array and creates an array with the new number, then return that as a new array.</p>
+<p>The next time we run Fibby, it does the same thing. In essence every new copy gets a version of the array with the two numbers added up.</p>
+<p>It's a bit tough to get your head wrapped around this. If you want to see another way more complicated example of how recursion work, take a look at this video in one of my courses. It creates a visual version of a popular recursion problem called the eight queens problem.</p>
+<p>That clinic problem has a more practical way of looking at recursion that also deals with how to visually display what's happening.</p>

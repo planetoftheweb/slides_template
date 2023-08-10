@@ -1,0 +1,84 @@
+<!-- .slide: data-state="layout-title" class="bg-dark"-->
+<h1 id="definition-expressions" tabindex="-1">Definition Expressions <a class="direct-link" href="#definition-expressions"> </a></h1>
+<div class="slide-link"><a href="https://https://go.raybo.org/9UwV"><i class="fab fa-slideshare"></i> go.raybo.org/9UwV</a></div>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>You've already seen the basic way to declare a function, but there's another way that's pretty common called a Definition Expressions.</p>
+<hr>
+<h1 id="declaration%2Finvocation" tabindex="-1">Declaration/Invocation <a class="direct-link" href="#declaration%2Finvocation"> </a></h1>
+<pre><code class="language-js">const $ = document.querySelector.bind(document)
+
+function add(a, b) {
+  const c = a + b;
+  return c;
+}
+
+const output = add(2, 2)
+
+$('#output').innerHTML = output
+console.log(output)
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>This is what we did in the last video, it's the classic declaration/invocation pattern.</p>
+<p>Because we're using a return statement inside the function.</p>
+<p>We can use an assignment to invoke the function.</p>
+<hr>
+<h1 id="standalone-invocation" tabindex="-1">Standalone Invocation <a class="direct-link" href="#standalone-invocation"> </a></h1>
+<pre><code class="language-js">const $ = document.querySelector.bind(document)
+
+function add(a, b) {
+  const c = a + b;
+  $('#output').innerHTML = c
+  console.log(c)
+}
+
+add(2, 2)
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>It's not necessary to make an assignment in order to call a function.</p>
+<p>So here, I'm adding the output statements directly inside the function declaration.</p>
+<p>That way we don't need to use an assignment and can just call the function directly.</p>
+<hr>
+<h1 id="definition-expression" tabindex="-1">Definition Expression <a class="direct-link" href="#definition-expression"> </a></h1>
+<pre><code class="language-js">const $ = document.querySelector.bind(document)
+
+let add = function(a, b) {
+  const c = a + b;
+  $('#output').innerHTML = c
+  console.log(c)
+}
+
+add(2, 2); //4
+add(4, 4); //8
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>There's another way to work with functions, it's called a definition expression and is a combination of what we've been doing.</p>
+<p>In JavaScript, you can always assign a sequence of commands to a variable or a constant like this. Those commands are know as expressions. What's special here is that I'm using a function as an expression.</p>
+<p>Notice that in this case, the function has no name...although there wouldn't be a problem for it to have a name here, but it's no necessary. This is known as an anonymous function.</p>
+<p>In this case, you still have to call the function, but now, you can use the add variable pretty much like the function call...and that means that we can call this add definition expression multiple times.</p>
+<hr>
+<h1 id="it's-iife" tabindex="-1">It's IIFE <a class="direct-link" href="#it's-iife"> </a></h1>
+<pre><code class="language-js">(function(a, b) {
+  const $ = document.querySelector.bind(document)
+  const c = a + b;
+  $('#output').innerHTML = c
+  console.log(c)
+})(2, 2);
+</code></pre>
+<p><a href="https://github.dev/LinkedInLearning/javascript-functions-2502735/tree/01_03b" target="_blank"><code class="code-royal">Try it</code></a></p>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Let's take a look at another pattern. This one has a great name...it's know as an IIFE., which stands for an Immediately Invoked Function Expression.</p>
+<p>An IIFE is a function expression that will run right away because we're immediately calling...or invoking it.</p>
+<p>They used to be more popular in the past and I haven't used one in a while, but it's one of those things that will help you understand functions better, so let's try it.</p>
+<p>Here we have an anonymous function wrapped around parenthesis. The parenthesis allows us to create a group out of the function. This is what makes the entire function an expression.</p>
+<p>The second part, which is at the bottom is invoking the function...passing it along some parameters.</p>
+<p>I think you'll want to try this, so let's see if we can convert one of our previous functions into an IIFE.</p>

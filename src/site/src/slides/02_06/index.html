@@ -1,0 +1,92 @@
+<!-- .slide: data-state="layout-title" class="bg-dark"-->
+<h1 id="asynchronous-functions" tabindex="-1">Asynchronous Functions <a class="direct-link" href="#asynchronous-functions"> </a></h1>
+<div class="slide-link"><a href="https://go.raybo.org/9eeT"><i class="fab fa-slideshare"></i> go.raybo.org/9eeT</a></div>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>There's a way in which we can create functions that wait for certain things to happen.</p>
+<hr>
+<h1 id="async%2Fawait" tabindex="-1">Async/Await <a class="direct-link" href="#async%2Fawait"> </a></h1>
+<ul>
+<li>Async identifies</li>
+<li>Await waits</li>
+<li>Promises</li>
+</ul>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>One of the things that used to be real difficult with functions is guaranteing that they ran only when something else happened. That has been simplified by allowing two special keywords called Async and Await.</p>
+<p>Adding the Async keyword to a function identifies that function as something that has the capacity to handle this feature.</p>
+<p>The keyword await defines a spot that stops the execution of a function until something else happens.</p>
+<p>These functions work when what's controlling the flow happen to be something called a promise.</p>
+<hr>
+<h1 id="async" tabindex="-1">Async <a class="direct-link" href="#async"> </a></h1>
+<pre><code class="language-js">async function doIt() {
+    return console.log(&quot;I'm doing it&quot;);
+}
+doIt().then( item =&gt; {
+  console.log('Glad you did it!')  
+})
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>The Async keywork lets you define a function as being asynchronous. Something that can manage time.</p>
+<p>An Async function like this will return a promise.</p>
+<p>So we can call it and do something when that function resolves as being complete.</p>
+<hr>
+<h1 id="await" tabindex="-1">Await <a class="direct-link" href="#await"> </a></h1>
+<pre><code class="language-js">async function prep() {
+    return console.log('Preparing')
+}
+async function doIt() {
+    await prep()
+    return console.log(&quot;I'm doing it&quot;)
+}
+doIt();
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>The other part of defining an async function is that we can use await with it...stopping the execution of code until something else takes place.</p>
+<p>The thing you're waiting for needs to return some type of promise, so you can see here that we've created a prep function that's also an asynchronous function.</p>
+<hr>
+<h1 id="error-handling" tabindex="-1">Error Handling <a class="direct-link" href="#error-handling"> </a></h1>
+<pre><code class="language-js">async function prep() {
+  	throw new Error(&quot;Not Possible&quot;);
+}
+async function doIt() {
+  try {
+    await prep()
+    console.log(&quot;I'm doing it&quot;)
+  } catch(error) {
+    console.log(error)
+  }
+}
+doIt();
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>So, what happens if there is an error?</p>
+<p>You can use the try/catch statements to take care of any errors.</p>
+<p>Here, I'm throwing an error on purpose, but promises have a system for sending errors if something you're doing is not working.</p>
+<hr>
+<h1 id="fetching" tabindex="-1">Fetching <a class="direct-link" href="#fetching"> </a></h1>
+<pre><code class="language-js">async function getSocial() {
+    const res = await fetch('./social.json')
+    const data = await res.json();
+    return data;
+}
+</code></pre>
+<p><a href="https://github.dev/LinkedInLearning/javascript-functions-2502735/tree/02_06b" target="_blank"><code class="code-royal">Try It</code></a></p>
+<p><a href="https://www.linkedin.com/learning/javascript-as-a-second-language/introduction?autoplay=true&u=104" target="_blank"><code class="code-primary">More Info</code></a></p>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>A good example of something you will use async and await for is the fetch API. Fetch is a function that returns a promise and reads some data either from a file or an external source.</p>
+<p>It's perfect because retrieving data is often something that requires you to make sure you don't start doing things before that function is done.</p>
+<p>As a matter of fact, reading the file is not enough, you also need to be able to wait for the data to be read and them convert that data into a javaScript Object from a JSON file.</p>
+<p>Let's take a look at how that works.</p>
+<p>As I said, to really understand how Async and Await works, it's a good idea to understand both the try/catch statements as well as promises, which are the precursor to these statements.</p>
+<p>If you want to learn more about those, check out my other course JavaScript as a Second Language where I cover those in a lot more detail.</p>

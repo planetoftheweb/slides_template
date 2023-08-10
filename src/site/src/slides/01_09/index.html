@@ -1,0 +1,27 @@
+<!-- .slide: data-state="layout-title" class="bg-dark"-->
+<h1 id="solution" tabindex="-1">Solution <a class="direct-link" href="#solution"> </a></h1>
+<hr>
+<!-- .slide: data-state="layout-title" class="bg-dark"-->
+<h1 id="solution-1" tabindex="-1">Solution <a class="direct-link" href="#solution-1"> </a></h1>
+<ol>
+<li>Given previous object</li>
+<li>Standalone function</li>
+<li>Object as input</li>
+<li>key/value list</li>
+<li>Insert into DOM</li>
+</ol>
+<p><a href="https://github.dev/LinkedInLearning/javascript-functions-2502735/tree/01_09" target="_blank"><code class="code-royal">Solution</code></a></p>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Create function that takes an object as an input and creates a list in the DOM out of the Object's key/value pairs.</p>
+<pre><code class="language-js">function listObject(data) {
+  const $ = document.querySelector.bind(document)
+  let output = '&lt;ul&gt;'
+  for (const key in data) {
+    output+=`&lt;li&gt;&lt;a href=&quot;${data[key]}&quot;&gt;${key}&lt;/a&gt;&lt;/li&gt;`
+  }
+  output +='&lt;/ul&gt;'
+  $('#output').innerHTML = output
+}
+</code></pre>

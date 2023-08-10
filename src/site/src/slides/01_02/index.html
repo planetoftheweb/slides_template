@@ -1,0 +1,83 @@
+<!-- .slide: data-state="layout-title" class="bg-dark"-->
+<h1 id="mechanics-of-functions" tabindex="-1">Mechanics of Functions <a class="direct-link" href="#mechanics-of-functions"> </a></h1>
+<div class="slide-link"><a href="https://go.raybo.org/9SaN"><i class="fab fa-slideshare"></i> go.raybo.org/9SaN</a></div>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>A function is a series of statements that are grouped together to perform specific tasks.</p>
+<hr>
+<h1 id="basics" tabindex="-1">Basics <a class="direct-link" href="#basics"> </a></h1>
+<pre><code class="language-js">function NAME(PARAMETERS,...) {
+  STATEMENTS;...
+  return VALUE;
+}
+</code></pre>
+<ul>
+<li>The <code>function</code> keyword</li>
+<li>Followed by a <code>name</code></li>
+<li>Optional <code>parameters</code></li>
+<li><code>Statements</code> in curly braces</li>
+<li><code>return</code> statement</li>
+</ul>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Regular functions are created using the <code>function</code> keyword.</p>
+<p>After this keyword, a name is given to the function. There are some specific rules. We'll talk about them in a bit.</p>
+<p>In Parenthesis, you can specify optional parameters. That means that you can pass values to the functions and those become variables inside the function.</p>
+<p>You can then add a series of statements inside curly braces. Each of those statements is usually separated by semicolons.</p>
+<p>There's a special statement you can use inside a function to return a value when the function is executed.</p>
+<hr>
+<h1 id="starting-code" tabindex="-1">Starting Code <a class="direct-link" href="#starting-code"> </a></h1>
+<pre><code class="language-js">const $ = document.querySelector.bind(document)
+const output = 'Hello World'
+
+$('#output').innerHTML = output
+console.log(output)
+</code></pre>
+<p><a href="https://github.dev/LinkedInLearning/javascript-functions-2502735/tree/01_02b" target="_blank"><code class="code-royal">Try it</code></a></p>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Let's use CodeSpaces to try this out.</p>
+<p>You'll notice that I've started you out with some code already. Let's talk about what that's setting up before we get into our function.</p>
+<p>I've set up two sample ways to output our code.</p>
+<pre><code class="language-js">const $ = document.querySelector.bind(document)
+const output = 'Hello World'
+
+$('#output').innerHTML = output
+console.log(output)
+</code></pre>
+<p>You can see that I'm setting up a dollar sign variable that gives JavaScript access to the document. It's really just a shortcut ot the DOM or document object model.</p>
+<p>Then I'm setting up a variable called output that I'm going to use to output the value.</p>
+<p>Using our dollar sign object, we can target an element in the HTML with an ID of output.</p>
+<p>The HTML for our page is in the canvas.html file, which you can get to in the explorer.</p>
+<p>Then I'm using the innerHTML property to set the value of the element to our ouput variable. That's what writing the hello world to our page.</p>
+<p>The other and much simpler way to output things is to use the console.log command. This is great for demos, but most of the time when I'm coding, I'm doing things on the page, so I wanted to show you both options.</p>
+<hr>
+<h1 id="writing-a-function" tabindex="-1">Writing a Function <a class="direct-link" href="#writing-a-function"> </a></h1>
+<pre><code class="language-js">function add(a, b) {
+  const c = a + b
+  return c
+}
+const output = add(2, 2)
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Let's use CodeSpaces to try this out.</p>
+<hr>
+<h1 id="function-names" tabindex="-1">Function Names <a class="direct-link" href="#function-names"> </a></h1>
+<ul>
+<li>Case sensitive</li>
+<li>camelCase</li>
+<li>Descriptive verbs</li>
+</ul>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>A couple of suggestions for naming functions.</p>
+<p>First, be careful that variable names are case sensitive, so uppercase A in Add is differen than lowercase add</p>
+<p>Typically function names are written in camelCase, First letter lowercase if the name has another word, it's in uppercase</p>
+<p>Try to use descriptive verbs. I could have called my function addNumbers, but add is short enough.</p>
+<p>By the way writing the function is called declaring the function, and using the function is called invoking the function, but things get really interesting when we dive into how this works, so lets keep going.</p>

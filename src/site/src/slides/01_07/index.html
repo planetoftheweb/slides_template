@@ -1,0 +1,125 @@
+<!-- .slide: data-state="layout-title" class="bg-dark"-->
+<h1 id="return" tabindex="-1">Return <a class="direct-link" href="#return"> </a></h1>
+<div class="slide-link"><a href="https://go.raybo.org/9Z0M"><i class="fab fa-slideshare"></i> go.raybo.org/9Z0M</a></div>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Sometimes things that seem insignificant can be quite powerful and that's the case with the return statement.</p>
+<hr>
+<h1 id="return-1" tabindex="-1">Return <a class="direct-link" href="#return-1"> </a></h1>
+<pre><code class="language-js">function add(a, b) {
+  return a+b
+}
+console.log(add(2,2)) //4
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Whenever you invoke a function, it's a bit like generating an equation. And equations have results. So, the basic job of the return statement is to return the result of the execution of the function.</p>
+<hr>
+<h1 id="expressions" tabindex="-1">Expressions <a class="direct-link" href="#expressions"> </a></h1>
+<pre><code class="language-js">function add(a, b) {
+  return console.log('Success'),
+    a+b
+}
+console.log(add(2,2))
+// Success
+// 4
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Expressions in JavaScript are pretty important. They're valid units of code that resolve to a value.</p>
+<p>Take a look at the output I added to the comments. It's printing out the keyword success and then the results of the addition.</p>
+<p>Here, we're using a comma operator to do this. The comma operator is interesting in that it will evaluate each of the operands from left to right and then return the value of the last operand.</p>
+<p>So in the function I'm returning two statement. The first one logs the word success to the console. The second adds the two numbers. Because the addition is the last thing, it's what actually gets returned to the caller.</p>
+<p>When console.log calls the function, it only receives the result of the addition and it outputs that to the console.</p>
+<p>The key is to understand how each of these statements work. Don't worry, we'll get to some practice in a minute.</p>
+<hr>
+<h1 id="return-quirks" tabindex="-1">Return Quirks <a class="direct-link" href="#return-quirks"> </a></h1>
+<pre><code class="language-js">function add(a, b) {
+  return
+    console.log('Success'),
+    a+b
+}
+console.log(add(2,2))
+// undefined
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Let's say, I want to use the same code as before, but I want to make it look nicer so I add a carriage return.</p>
+<p>Another quirk of javascript is that it assumes that every line of code is a statement. The compiler will add a semicolon at the end of a line if it's not there</p>
+<p>So, when the compiler re-writes this, there will be a semicolon at the end of the return statement.</p>
+<p>One of the by-products of the return statement is that it stops the execution of the rest of the function, so the lines won't execute.</p>
+<p>So if you try this in CodeSpaces, you'll just get a value of undefined...everything after the return statement gets ignored.</p>
+<hr>
+<h1 id="return-quirks-1" tabindex="-1">Return Quirks <a class="direct-link" href="#return-quirks-1"> </a></h1>
+<pre><code class="language-js">function add(a, b) {
+  return (
+    console.log('Success'),
+    a+b
+  )
+}
+console.log(add(2,2))
+// Success
+// 4
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>To fix something like this, you'll often see a set of parenthesis added to return statements to prevent auto semicolon insertion from causing a problem.</p>
+<hr>
+<h1 id="multiple-returns" tabindex="-1">Multiple Returns <a class="direct-link" href="#multiple-returns"> </a></h1>
+<pre><code class="language-js">function add(a, b) {
+ if (a&gt;b) { return a+b }
+ else { return a-b }
+}
+console.log(add(2,3))// -1
+console.log(add(3,2))// 5
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>You can have more than one return statement in a function so in this conditional statement, the operation will depend on the value of a and b.</p>
+<p>The function will return -1 and then 5.</p>
+<hr>
+<h1 id="no-returns" tabindex="-1">No Returns <a class="direct-link" href="#no-returns"> </a></h1>
+<pre><code class="language-js">function add(a, b) {
+  console.log(a + b)
+}
+add(2,3)
+// 5
+// undefined
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>If you don't use a return statement, the function still returns something...in this case a value of undefined.</p>
+<p>Since we're putting the function in a console.log statement, that statement would output undefined.</p>
+<p>It's the same as writing a return statement without anything next to it. Sometimes you see that when you want the function to stop executing something.</p>
+<hr>
+<h1 id="returning-functions" tabindex="-1">Returning Functions <a class="direct-link" href="#returning-functions"> </a></h1>
+<pre><code class="language-js">function counter() {
+  let number = 1
+  return function() { console.log(number++) }
+}
+let steps = counter();
+steps() // 1
+steps() // 2
+</code></pre>
+<p><a href="https://github.dev/LinkedInLearning/javascript-functions-2502735/tree/01_07b" target="_blank"><code class="code-royal">Try it</code></a></p>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>This sounds weird, but since functions return a value, they can also return other functions. This is somewhat common and useful for a number of patterns.</p>
+<p>For example here, I'm creating a function that keeps track of a number. Each time I call this function, it's going to add one to the current count.</p>
+<p>Somethign really cool is happening so it's worth jumping into codespaces.</p>
+<p>We initialize the steps variable so that it can basically act as the function.</p>
+<p>When it first executes, it initializes the number to 1 and then the return function logs the number to the console.</p>
+<p>The interesting bit is the ++ operator. That increases the value of a variable by one...and this is key AFTER whatever is happening.</p>
+<p>When it executes again, you might think that the value of number gets reset to 1, but that's not the case.</p>
+<p>The function being returned actually changes the value of number, so the second time it runs, the copy that's in the steps variable has a value of 2, so it outputs that.</p>
+<p>Every time you call it the value of the number will increase.</p>
+<p>The ability of a function inside a function to affect the value of a parent like this is called a closure and it's an extremely powerful programming pattern.</p>
+<p>I wanted to mention that I'm always giving you access to a codespaces, if you're having a hard time understanding some of the other code in the slides you can copy and paste it from the slides to the codespace.</p>

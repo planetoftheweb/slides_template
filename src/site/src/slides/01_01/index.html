@@ -1,0 +1,104 @@
+<!-- .slide: data-state="layout-title" class="bg-dark"-->
+<h1 id="codeswingdddd" tabindex="-1">CodeSwingdddd <a class="direct-link" href="#codeswingdddd"> </a></h1>
+<div class="slide-link"><a href="https://go.raybo.org/2OXU"><i class="fab fa-slideshare"></i> go.raybo.org/2OXU</a></div>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>In addition to working with CodeSpaces, this course uses CodeSwing to help run and preview your code.</p>
+<hr>
+<h1 id="codeswing" tabindex="-1">CodeSwing <a class="direct-link" href="#codeswing"> </a></h1>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=codespaces-Contrib.codeswing">Code Playground</a></li>
+<li>Try It Button</li>
+</ul>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>CodeSwing is an interactive editor that you can run inside Visual Studio Code. It's similar to something like CodePen.</p>
+<p>Most of the time, if you're following along with the slides, you'll be able to simply click on one of these try it buttons, which will launch a code preview with the proper code.</p>
+<p>If you're curious as to how that works, then let's take a deeper dive.</p>
+<hr>
+<h1 id="the-repo" tabindex="-1">The Repo <a class="direct-link" href="#the-repo"> </a></h1>
+<ul>
+<li>Branch Dropdown</li>
+<li>Code Button</li>
+<li>Create CodeSpace</li>
+</ul>
+<p>I'm going to go to the repo for this course and then from the branch dropdown. I'll choose the branch for the this video which is in chapter one and the first video.</p>
+<p>Then I'm going to go to the green code button. I'll make sure I'm in the codespaces tab and choose create codespace on the branch.</p>
+<hr>
+<h1 id="codeswing-1" tabindex="-1">CodeSwing <a class="direct-link" href="#codeswing-1"> </a></h1>
+<ul>
+<li>Script Pane</li>
+<li>Preview Pane</li>
+<li>Terminal</li>
+</ul>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>You should see a pane with the javascript we'll be using for the lesson</p>
+<p>A preview pane will show you the output of an HTML file that you can target.</p>
+<p>You should also see a terminal pane at the bottom of the screen.</p>
+<hr>
+<h1 id="the-magic" tabindex="-1">The Magic <a class="direct-link" href="#the-magic"> </a></h1>
+<ul>
+<li>Explorer</li>
+<li><code>script.js</code></li>
+<li><code>canvas.html</code></li>
+<li><a href="https://picocss.com/">pico.css</a></li>
+<li><code>div#output</code></li>
+</ul>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>If you open the <code>explorer</code> from the <code>activity bar</code>, you can see the files that are making this work.</p>
+<p>The <code>script.js</code> file has the javascript you're looking at.</p>
+<p>The canvas.html has the HTML for the page on the right.</p>
+<p>You may notice that I'm preloading a library called <a href="https://picocss.com/">pico.css</a> to make things look decent without any styles.</p>
+<p>There's a special <code>DIV</code> with an ID of output that I can use to add somethign to the page with JavaScript if I want to.</p>
+<p>Otherwise it's a pretty boring page.</p>
+<hr>
+<h1 id="more-info" tabindex="-1">More Info <a class="direct-link" href="#more-info"> </a></h1>
+<ul>
+<li>Control views</li>
+<li>Closing Files</li>
+<li>Rebooting Swing</li>
+</ul>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>You can customize the view by moving things around codespaces just like you would with Visual Studio Code so you can move panes around.</p>
+<p>If you close accidentally close the script file, you can just double click on the explorer to open it.</p>
+<p>You can restart the swing by using the command palette (hamburger/view/commandpalette) and selecting <code>CodeSwing:Open Swing...</code> Choose the current folder and hit enter. It will redraw the swing.</p>
+<hr>
+<h1 id="swing-options" tabindex="-1">Swing Options <a class="direct-link" href="#swing-options"> </a></h1>
+<ul>
+<li>Swing Icons</li>
+<li>Play Code</li>
+<li>Console</li>
+<li>Add libraries</li>
+</ul>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>You may notice a few extra icons on the preview tab</p>
+<p>You can play the code if you need to force execute something...although it should auto-update as you type.</p>
+<p>You can also see icons for opening the console (although the setup already does that for you)</p>
+<p>There's some shortcuts for the commands like some controls for changing the layout.</p>
+<p>Finally, there's an icon for the adding a library so you can add some other css or script libraries like React.</p>
+<p>You can also find all the commands using the command palette.</p>
+<hr>
+<h1 id="advanced" tabindex="-1">Advanced <a class="direct-link" href="#advanced"> </a></h1>
+<ul>
+<li><code>codeswing.json</code></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=codespaces-Contrib.codeswing#swing-manifest">Manifest</a> info</li>
+<li>Rebooting Swing</li>
+<li>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+</li>
+</ul>
+<p>There's a configuration file you can use to control the swing called <code>codeswing.json</code>.</p>
+<p>You can use that to adjust the swing. For us, it's making sure that the terminal is open when you open one of these.</p>
+<p>If you want to see how this code would work in your regular browser, we also have the livepreview extensions loaded, so you can just right click on the canvas.html file in the manifest and choose <code>Open in Browser</code>.</p>

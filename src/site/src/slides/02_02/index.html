@@ -1,0 +1,66 @@
+<!-- .slide: data-state="layout-title" class="bg-dark"-->
+<h1 id="constructors" tabindex="-1">Constructors <a class="direct-link" href="#constructors"> </a></h1>
+<div class="slide-link"><a href="https://go.raybo.org/9dSO"><i class="fab fa-slideshare"></i> go.raybo.org/9dSO</a></div>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>You can create reusable objects in more than one way, so let's explore another popular pattern for creating them called the constructor.</p>
+<hr>
+<h1 id="new-keyword" tabindex="-1">New Keyword <a class="direct-link" href="#new-keyword"> </a></h1>
+<pre><code class="language-js">let Dog = function() {
+  let name;
+}
+let firstDog = new Dog;
+firstDog.name = &quot;Mojo&quot;
+secondDog.name = &quot;Pugsley&quot;
+console.log(firstDog) //{&quot;name&quot;:&quot;Mojo&quot;}
+console.log(SecondDog) //{&quot;name&quot;:&quot;Pugsley&quot;}  
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Constructors are a way to write classes with JavaScript functions. JavaScript Classes never really took off, but you still see this type of pattern in a lot of places...and think there's some merit to them.</p>
+<p>Some things about this code. I used a capital letter for the name of the function. That's common when creating this pattern that acts like a class.</p>
+<p>There's also a keyword we hadn't seen before called new. That creates an instance of the object. Each instance has it's own set of properties.</p>
+<hr>
+<h1 id="the-prototype" tabindex="-1">The Prototype <a class="direct-link" href="#the-prototype"> </a></h1>
+<pre><code class="language-js">let Dog = function() {
+  let name;
+}
+Dog.prototype = {
+  speak: function(what) {
+    return (console.log(what));
+  }
+}
+let firstDog = new Dog;
+firstDog.name = &quot;Mojo&quot;
+firstDog.speak('woof')
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>JavaScript objects have a special property called the prototype. If you've visited online documentation, you may have seen this keyword.</p>
+<p>This feature allows all objects to be extended. When we create our Dog class, we can target the prototype and add any number of features to that class. In this case, we're adding a speak function.</p>
+<hr>
+<h1 id="separate-function" tabindex="-1">Separate Function <a class="direct-link" href="#separate-function"> </a></h1>
+<pre><code class="language-js">let speak = function(what) {
+  return (console.log(what));
+}
+  
+let Dog = function() {
+  let name;
+}
+
+Dog.prototype.speak = speak
+let myDog = new Dog;
+
+myDog.name = &quot;Mojo&quot;
+myDog.speak('woof')
+</code></pre>
+<p><a href="https://github.dev/LinkedInLearning/javascript-functions-2502735/tree/02_02b" target="_blank"><code class="code-royal">Try It</code></a></p>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>We can also write the function externally. That way we could add this same functionality to another object.</p>
+<p>Let's try to write another function that creates a cat and adds the same speech functionality.</p>
+<p>The prototype is a great way to expand an existing function...since every object has a prototype you can redefine just about every way JavaScript works.</p>

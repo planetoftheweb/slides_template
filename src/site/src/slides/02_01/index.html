@@ -1,0 +1,91 @@
+<!-- .slide: data-state="layout-title" class="bg-dark"-->
+<h1 id="arrow-functions" tabindex="-1">Arrow Functions <a class="direct-link" href="#arrow-functions"> </a></h1>
+<div class="slide-link"><a href="https://go.raybo.org/9aK8"><i class="fab fa-slideshare"></i> go.raybo.org/9aK8</a></div>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Arrow functions are a newer feature in JavaScript that changes the way you can write functions...in a good way.</p>
+<hr>
+<h1 id="shortcut" tabindex="-1">Shortcut <a class="direct-link" href="#shortcut"> </a></h1>
+<pre><code class="language-js">let square = function(a) {
+   return a * a
+}
+console.log(square(2))
+//4
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Arrow functions are shortcuts for anonymous functions, which are also called a function expressions. We've been using those in some of our examples.</p>
+<p>Let's see how we can make this example shorter by converting it to an arrow function.</p>
+<p>First, you can get rid of the function keyword.</p>
+<p>You'll need to add the arrow before the curly braces</p>
+<p>If, and only if the function takes only one parameter, then you can get rid of the parenthesis around the parameter.</p>
+<p>Arrow functions have implicit returns, so if the function returns only one expression, then you can get rid of the returns. If it has more than one line of code, you'll need to reintroduce the return.</p>
+<p>Again, if it's only one line of code, then you can also remove the curly braces.</p>
+<p>let square = a =&gt; a * a</p>
+<p>You can see that arrow functions can be way shorter than traditional functions, but you can't just use them everywhere.</p>
+<hr>
+<h1 id="arrows-and-objects" tabindex="-1">Arrows and Objects <a class="direct-link" href="#arrows-and-objects"> </a></h1>
+<pre><code class="language-js">info = {
+  social: {
+    youtube: 'https://youtube.com/planetoftheweb',
+  },
+  logSocial: function() {
+    return console.log(this.social.youtube)
+  }
+}
+info.logSocial();
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>You may be tempted to use arrow functions with method definitions, but the problem is that arrows do not have their own bindings to the this keyword, so you'd get an error if you try.</p>
+<pre><code class="language-js">logSocial: () =&gt; console.log (this.social.youtube)
+</code></pre>
+<hr>
+<h1 id="object-shortcut" tabindex="-1">Object Shortcut <a class="direct-link" href="#object-shortcut"> </a></h1>
+<pre><code class="language-js">info = {
+  social: {
+    youtube: 'https://youtube.com/planetoftheweb',
+  },
+  logSocial() {
+    return console.log(this.social.youtube)
+  }
+}
+info.logSocial();
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Here's a bonus tip, you can get rid of the function keyword when creating a method and get rid of the colon.</p>
+<hr>
+<h1 id="arguments" tabindex="-1">Arguments <a class="direct-link" href="#arguments"> </a></h1>
+<pre><code class="language-js">function add(...theArgs) {
+  let argSum = theArgs.reduce((sum, val) =&gt; sum + val)
+  return argSum;
+}
+output = add(1,2,3,4,5);
+console.log(output) //15
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>The arguments array like object is not available with Arrow functions, but you can use the rest parameters to get to arguments as well.</p>
+<p>Here I rewrote a previous internal function as an arrow function and used theargs rest variable to pass things along.</p>
+<hr>
+<h1 id="destructuring" tabindex="-1">Destructuring <a class="direct-link" href="#destructuring"> </a></h1>
+<pre><code class="language-js">function add(...theArgs) {
+  let argSum = theArgs.reduce((sum, val) =&gt; sum + val)
+  return argSum;
+}
+output = add(1,2,3,4,5);
+console.log(output) //15
+</code></pre>
+<p><a href="https://github.dev/LinkedInLearning/javascript-functions-2502735/tree/02_01b" target="_blank"><code class="code-royal">Try It</code></a></p>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Once you understand arrow functions, you'll start to go nuts using tricks to really make them small.</p>
+<p>I'm going to show you how to to take this further to make this entire thing a single line. Let's check it out.</p>
+<p>console.log([1,2,3,4,5].reduce((sum, val) =&gt; sum + val))</p>

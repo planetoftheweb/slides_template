@@ -1,0 +1,63 @@
+<!-- .slide: data-state="layout-title" class="bg-dark"-->
+<h1 id="closures" tabindex="-1">Closures <a class="direct-link" href="#closures"> </a></h1>
+<div class="slide-link"><a href="https://go.raybo.org/9e1a"><i class="fab fa-slideshare"></i> go.raybo.org/9e1a</a></div>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>I want to review a pattern that's really popular among computer programmers called closures.</p>
+<hr>
+<h1 id="closures-1" tabindex="-1">Closures <a class="direct-link" href="#closures-1"> </a></h1>
+<ul>
+<li>Use scope</li>
+<li>Lexical scope</li>
+<li>Function inside</li>
+</ul>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Closures uses certain aspects of how scope works in javascript. Scope refers to the area withing a computer program where a variable is available.</p>
+<p>JavaScript, specially when talking about functions use something called lexical scope. With lexical scope, an inner function will have access to variables in the parent function.</p>
+<p>A closure is created when you use the function keyword inside and another function. Now that means that variables can remember the environment that they were created in. That doesn't happen in other types of languages. And it allows you to do some special things in JavaScript.</p>
+<hr>
+<h1 id="sample-closure" tabindex="-1">Sample Closure <a class="direct-link" href="#sample-closure"> </a></h1>
+<pre><code class="language-js">function counter() {
+  let number = 1
+  return function() { console.log(number++) }
+}
+let steps = counter();
+steps() // 1
+steps() // 2
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>We saw this already when we talked about how the return statement works.</p>
+<p>This function has an internal function that remembers the value of a variable.</p>
+<hr>
+<h1 id="closure-objects" tabindex="-1">Closure Objects <a class="direct-link" href="#closure-objects"> </a></h1>
+<pre><code>function myObject () {
+    let myValue = 1;
+    return {
+        display: () =&gt; console.log(myValue),
+        increment: () =&gt; myValue++
+    }
+}
+</code></pre>
+<p><a href="https://github.dev/LinkedInLearning/javascript-functions-2502735/tree/02_04b" target="_blank"><code class="code-royal">Try It</code></a></p>
+<p><a href="https://www.linkedin.com/learning/mastering-web-developer-interview-code-2/create-a-practical-example-of-closures?autoplay=true&resume=false&u=104" target="_blank"><code class="code-primary">More Info</code></a></p>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>I'm going to show you another way that you can write something like this to make it more flexible.</p>
+<p>You can create a function that returns an object. This is a really cool notation that works well with arrow functions to make things a lot shorter.</p>
+<p>This function has an initialized value and two methods. It takes advantage of the ability to use functions to generate objects.</p>
+<p>Let's take a look at how this works.</p>
+<p>let mything = myObject();<br>
+mything.display();<br>
+mything.increment();<br>
+mything.display();<br>
+let other = myObject();<br>
+other.display();<br>
+other.increment();</p>
+<p>One more thing. Notice that in my slides, I have an option to get more information. Closures are one of those things that seem conceptualy straightforward, but unlike other things it's hard to think of a practical example.</p>
+<p>Thankfully, I thought about this really hard and have a video that will help. It's part of my course on Web Developer Interview code. Indeed it's one of those things that often gets asked in interviews, so check it out.</p>

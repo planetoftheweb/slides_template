@@ -1,0 +1,97 @@
+<!-- .slide: data-state="layout-title" class="bg-dark"-->
+<h1 id="methods" tabindex="-1">Methods <a class="direct-link" href="#methods"> </a></h1>
+<div class="slide-link"><a href="https://go.raybo.org/9Xxu"><i class="fab fa-slideshare"></i> go.raybo.org/9Xxu</a></div>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>There's another way that JavaScript functions can be invoked...and that's through methods.</p>
+<hr>
+<h1 id="objects" tabindex="-1">Objects <a class="direct-link" href="#objects"> </a></h1>
+<pre><code class="language-js">info = {
+  social: {
+    youtube: 'https://youtube.com/planetoftheweb',
+    linkedin: 'https://linkedin.com/in/planetoftheweb',
+    blog: 'https://raybo.org'
+  }
+}
+</code></pre>
+<ul>
+<li>The object type</li>
+<li>Function in object</li>
+</ul>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>An object is the most flexible data types in JavaScript and they can hold many types of values including functions.</p>
+<p>So a method is just a function that has been assigned as a property of an object. Let's take a look at how you define one.</p>
+<hr>
+<h1 id="creating-a-method" tabindex="-1">Creating a Method <a class="direct-link" href="#creating-a-method"> </a></h1>
+<pre><code class="language-js">info = {
+  social: {...},
+  logSocial: function(data) {
+    console.log(`${data.youtube}
+        ${data.linkedin}
+        ${data.blog}`
+    )
+  }
+}
+info.logSocial(info.social);
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Assuming that the info object is created as in the previous slide, we can write a function...which is called a method when it's part of an object that logs the value of the different links.</p>
+<p>We call the method as part of the object, but it now will perform an action.</p>
+<hr>
+<h1 id="the-this-keyword" tabindex="-1">The <em>this</em> Keyword <a class="direct-link" href="#the-this-keyword"> </a></h1>
+<ul>
+<li>Object executing code
+<ul>
+<li>Function: global</li>
+<li>Object: object</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>You can use a special keyword in JavaScript called this.</p>
+<p>It refers to the object that is executing the current piece of code.</p>
+<p>If you're using this in a regular function, this references the global object.</p>
+<p>If you use the this keyword inside a method then it references the object itself.</p>
+<hr>
+<h1 id="using-this-keyword" tabindex="-1">Using <em>this</em> Keyword <a class="direct-link" href="#using-this-keyword"> </a></h1>
+<pre><code class="language-js">info = {
+  social: {...},
+  logSocial: function() {
+    console.log(`${this.social.youtube}
+        ${this.social.linkedin}
+        ${this.social.blog}`
+    )
+  }
+}
+info.logSocial();
+</code></pre>
+<p><a href="https://github.dev/LinkedInLearning/javascript-functions-2502735/tree/01_06b" target="_blank"><code class="code-royal">Try it</code></a></p>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>That means that we can rewrite our methods using the this keyword, which references the object.</p>
+<p>Let's try this out in CodeSpaces and we'll do a bit of a better job logging our project.</p>
+<pre><code class="language-js">info = {
+  social: {
+    youtube: 'https://youtube.com/planetoftheweb',
+    linkedin: 'https://linkedin.com/in/planetoftheweb',
+    blog: 'https://raybo.org'
+  },
+  logSocial: function() {
+    for (const key in this.social) {
+        console.log(`${key}: ${this.social[key]}`);
+    }
+  }
+}
+info.logSocial();
+</code></pre>
+<p>Functions as objects is one of the most useful JavaScript features. You use them all the time, sometimes without even knowing it.</p>
+<p>Can you guess which method we've been using extensively in these lessons?</p>
+<p>Yep...the console log statemewnt is a method that outputs a message to the web console. Now that you know how to build them, you'll probably notice all types of other methods.</p>

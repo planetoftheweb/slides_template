@@ -1,0 +1,84 @@
+<!-- .slide: data-state="layout-title" class="bg-dark"-->
+<h1 id="modules" tabindex="-1">Modules <a class="direct-link" href="#modules"> </a></h1>
+<div class="slide-link"><a href="https://go.raybo.org/9e0U"><i class="fab fa-slideshare"></i> go.raybo.org/9e0U</a></div>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Lets explore another common function pattern called modules.</p>
+<hr>
+<h1 id="modules-1" tabindex="-1">Modules <a class="direct-link" href="#modules-1"> </a></h1>
+<ul>
+<li>Export functions</li>
+<li>Easy imports</li>
+<li>Variable protection</li>
+</ul>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Modules allow you to put the functions you want to make available to one or more projects and store them in a separate file.</p>
+<p>You can easily import just the functions you need from one javascript codebase to another.</p>
+<p>The best part is that it lets you create variables and other functions that are local to the library codebase, so there's no chance that any variables inside your modules will polute anything you're doing in your main code.</p>
+<hr>
+<h1 id="modules-2" tabindex="-1">Modules <a class="direct-link" href="#modules-2"> </a></h1>
+<pre><code class="language-js">export function squared(a) {
+  return a * a;
+}
+
+export function add(a,b) {
+  return a + b;
+}
+//lib.js
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>The way we write modules in JavaScript has changed for the better in the newer versions of javascript.</p>
+<p>To create a module, all you have to do is create a file that has a function with an export keyword at the beginning.</p>
+<hr>
+<h1 id="importing" tabindex="-1">Importing <a class="direct-link" href="#importing"> </a></h1>
+<pre><code class="language-js">import { squared, add } from &quot;./lib.js&quot;;
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>To import this code into another javascript file, you simply use the import command.</p>
+<p>This can bring one or more functions separated by commas from a module to your current file.</p>
+<hr>
+<h1 id="renaming" tabindex="-1">Renaming <a class="direct-link" href="#renaming"> </a></h1>
+<pre><code class="language-js">import { squared as squareNums, add } from &quot;./lib.js&quot;;
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>You can easily rename the functions you import so that they have a different name inside the file you're importing them too.</p>
+<p>That's another way to make sure that if you're already using a function that has the name, it can be imported with a different name.</p>
+<hr>
+<h1 id="defaults" tabindex="-1">Defaults <a class="direct-link" href="#defaults"> </a></h1>
+<pre><code class="language-js">export default function squared(a) {
+  return a * a;
+}
+
+export function add(a,b) {
+  return a + b;
+}
+//lib.js
+</code></pre>
+<pre><code class="language-js">import squareNums, { add } from './lib.js'
+</code></pre>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>If you add the default keyword, then it's a bit easier when you import the function, you don't have to put it in curly braces.</p>
+<p>You can still import other functions by putting them in curly braces.</p>
+<hr>
+<h1 id="importing-everything" tabindex="-1">Importing Everything <a class="direct-link" href="#importing-everything"> </a></h1>
+<pre><code class="language-js">import * as lib from &quot;./lib.js&quot;;
+
+console.log(lib.default(3));
+console.log(lib.add(3,5));
+</code></pre>
+<p><a href="https://github.dev/LinkedInLearning/javascript-functions-2502735/tree/02_03b" target="_blank"><code class="code-royal">Try It</code></a></p>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>You can use the asterisk to impport all of the functions. Be careful when you're doing this because importing everything adds things that you might not need on a project, making your code larger and more efficient.</p>

@@ -1,0 +1,39 @@
+<!-- .slide: data-state="layout-title" class="bg-dark"-->
+<h1 id="challenge" tabindex="-1">Challenge <a class="direct-link" href="#challenge"> </a></h1>
+<hr>
+<!-- .slide: data-state="layout-title" class="bg-dark"-->
+<h1 id="challenge-1" tabindex="-1">Challenge <a class="direct-link" href="#challenge-1"> </a></h1>
+<ol>
+<li>Create social media navbar</li>
+<li>Read from external file</li>
+<li>use async/await</li>
+</ol>
+<p><a href="https://github.dev/LinkedInLearning/javascript-functions-2502735/tree/02_07" target="_blank"><code class="code-royal">Try It</code></a></p>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>Let's create a project that outputs a social media navigation for a website.</p>
+<p>We're going to read some data from an external JSON file and then use async and await to make sure everything happens in an orderly manner.</p>
+<pre><code>async function output(data) {
+    const $ = document.querySelector.bind(document)
+    let output = '&lt;nav&gt;&lt;ul&gt;'
+    for (const key in data) {
+        output +=`&lt;li&gt;&lt;a class=&quot;bi-${key}&quot; href=&quot;${data[key]}&quot;&gt; ${key}&lt;/a&gt;`
+    }
+    output +='&lt;/ul&gt;&lt;/nav&gt;'
+    $('#output').innerHTML = output
+}
+
+async function getSocial() {
+    const res = await fetch('./social.json')
+    const data = await res.json()
+    return data
+}
+
+async function doSocial() {
+    const social = await getSocial()
+    await output(social)
+}
+
+doSocial()
+</code></pre>
