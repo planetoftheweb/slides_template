@@ -1,18 +1,9 @@
 [{
     "filename": "00_01",
-    "title": "Practical GitHub Copilot" }
-,{
-    "filename": "00_02",
-    "title": "Slides" }
+    "title": "Welcome" }
 ,{
     "filename": "01_01",
-    "title": "The PaLM2 API" }
-,{
-    "filename": "01_02",
-    "title": "PaLM 2 Playgrounds" }
-,{
-    "filename": "01_03",
-    "title": "Setting Up" }
+    "title": "First Slide" }
 ,{
     "filename": "99_01",
     "title": "Next Steps" }
@@ -22,7 +13,4 @@
 ,{
     "filename": "slides",
     "title": "" }
-,{
-    "filename": "01_04",
-    "title": "Using NodeJS" }
 ]

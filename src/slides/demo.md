@@ -1,6 +1,6 @@
 ---
 title: Opinionated Reveal.js
-<!-- .slide: data-visibility="uncounted"-->
+slide: '<!-- .slide: data-visibility="hidden"-->'
 ---
 
 <!-- .slide: data-state="layout-title no-fragment"  -->

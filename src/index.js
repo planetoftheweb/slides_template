@@ -52,7 +52,7 @@ import Notes from 'reveal.js/plugin/notes/notes.esm'
 Reveal.initialize({
   plugins: [Markdown, Highlight, Notes],
   fragments: true, // Globally turn off fragments
-  footer: true, //show footer menu
+  footer: false, //show footer menu
   margin: 0,
   minScale: 0,
   maxScale: 4,
