@@ -1,0 +1,16 @@
+[{
+    "filename": "00_01",
+    "title": "Welcome" }
+,{
+    "filename": "01_01",
+    "title": "First Slide" }
+,{
+    "filename": "99_01",
+    "title": "Next Steps" }
+,{
+    "filename": "demo",
+    "title": "Opinionated Reveal.js" }
+,{
+    "filename": "slides",
+    "title": "" }
+]
